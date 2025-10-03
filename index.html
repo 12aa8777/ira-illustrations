@@ -51,6 +51,8 @@
 	<link href="assets/css/gsdk.css" rel="stylesheet"/>
 
 	<link href="assets/css/new-css.css" rel="stylesheet" />
+	<link href="assets/css/newdarkmode.css" rel="stylesheet" />
+	
 
 	<!--     Fonts and icons     -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -124,37 +126,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="navigation-default2">
         <ul class="nav navbar-nav navbar-right">
-					<li>
-						<a class="nav-link social btn-facebook" href="https://www.facebook.com/CreativeTim/" target="_blank">
-							<i class="fab fa-facebook-square"></i>
-						</a>
-					</li>
-					<li>
-						<a class="nav-link social btn-instagram" href="https://www.instagram.com/creativetimofficial" target="_blank">
-							<i class="fab fa-instagram"></i>
-						</a>
-					</li>
-					<li>
-						<a class="nav-link social btn-twitter" href="https://twitter.com/CreativeTim" target="_blank">
-							<i class="fab fa-twitter"></i>
-						</a>
-					</li>
-
-					<li>
-						<button type="button" class="btn btn-default btn-fill dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    <i class="fa fa-cloud-download-alt"></i>Download <span class="caret"></span>
-					  </button>
-					  <ul class="dropdown-menu">
-					    <li class="text-center">
-								<a href="https://github.com/ira-design/ira-illustrations/blob/SVG/SVG.zip?raw=true">Download SVG</a>
-								<a href="https://github.com/ira-design/ira-illustrations/blob/PNG/PNG.zip?raw=true">Download PNG</a>
-								<a href="https://github.com/ira-design/ira-illustrations/blob/ALL/PNG%2BSVG.zip/?raw=true">Download ALL</a>
-
-							</li>
-					  </ul>
-	        </li>
-
-         </ul>
+    <li>
+        <label class="dark-mode-toggle">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider"></span>
+        </label>
+    </li>
+    <li>
+        <a class="nav-link social btn-facebook" href="https://www.facebook.com/CreativeTim/" target="_blank">
+            <i class="fab fa-facebook-square"></i>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link social btn-instagram" href="https://www.instagram.com/creativetimofficial" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </li>
+    <li>
+        <a class="nav-link social btn-twitter" href="https://twitter.com/CreativeTim" target="_blank">
+            <i class="fab fa-twitter"></i>
+        </a>
+    </li>
+    <li>
+        <button type="button" class="btn btn-default btn-fill dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-cloud-download-alt"></i>Download <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li class="text-center">
+                <a href="https://github.com/ira-design/ira-illustrations/blob/SVG/SVG.zip?raw=true">Download SVG</a>
+                <a href="https://github.com/ira-design/ira-illustrations/blob/PNG/PNG.zip?raw=true">Download PNG</a>
+                <a href="https://github.com/ira-design/ira-illustrations/blob/ALL/PNG%2BSVG.zip/?raw=true">Download ALL</a>
+            </li>
+        </ul>
+    </li>
+</ul>
 
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -5675,7 +5680,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 <div id="crowbar-workspace">
 </div>
+<script>
+// Dark mode toggle functionality
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
 
+// Check for saved dark mode preference
+const isDarkMode = localStorage.getItem('darkMode') === 'true';
+if (isDarkMode) {
+    body.classList.add('dark-mode');
+    darkModeToggle.checked = true;
+}
+
+// Toggle dark mode
+darkModeToggle.addEventListener('change', function() {
+    if (this.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'true');
+    } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'false');
+    }
+});
+</script>
 </body>
 
   <!--  jQuery and Bootstrap core files    -->
